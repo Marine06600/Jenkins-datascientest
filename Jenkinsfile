@@ -68,8 +68,8 @@ stage('Deploiement en dev'){
                 mkdir .kube
                 ls
                 cat $KUBECONFIG > .kube/config
-                cp fastapi/values.yaml values.yml
-                cat values.yml
+                cp fastapi/values.yaml values.yaml
+                cat values.yaml
                 sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yaml
                 helm upgrade --install app fastapi --values=values.yaml --namespace dev
                 '''
@@ -89,8 +89,8 @@ stage('Deploiement en staging'){
                 mkdir .kube
                 ls
                 cat $KUBECONFIG > .kube/config
-                cp fastapi/values.yaml values.yml
-                cat values.yml
+                cp fastapi/values.yaml values.yaml
+                cat values.yaml
                 sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yaml
                 helm upgrade --install app fastapi --values=values.yaml --namespace staging
                 '''
@@ -116,8 +116,8 @@ stage('Deploiement en staging'){
                 mkdir .kube
                 ls
                 cat $KUBECONFIG > .kube/config
-                cp fastapi/values.yaml values.yml
-                cat values.yml
+                cp fastapi/values.yaml values.yaml
+                cat values.yaml
                 sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yaml
                 helm upgrade --install app fastapi --values=values.yaml --namespace prod
                 '''
